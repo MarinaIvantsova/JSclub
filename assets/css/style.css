@@ -1,0 +1,22 @@
+/*===============================
+  Variables
+  ===============================*/
+
+:root {
+  --color-bg-primary: #fff;
+  --color-bg-accent: #686de0;
+  --color-bg-success: #badc58;
+  --color-bg-warning: #ffbe76;
+  --color-bg-error: #ff7979;
+
+  --color-text-primary: #130f40;
+  --color-text-secondary: #95afc0;
+  --color-text-accent: #4834d4;
+  --color-text-success: #6ab04c;
+  --color-text-warning: #f0932b;
+  --color-text-error: #eb4d4b;
+
+  --font-primary: sans-serif;
+
+  --path-img: './assets/img';
+}
