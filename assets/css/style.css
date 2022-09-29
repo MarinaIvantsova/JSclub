@@ -20,7 +20,12 @@
 
   --path-img: './assets/img';
 }
-
+/*===============================
+  Common styles
+  ===============================*/
+body {
+  font-family: 'Montserrat', sans-serif;
+}
 
 /*===============================
   Layout
@@ -58,3 +63,16 @@
   position: relative;
   padding: 75px 0;
 }
+
+/*===============================
+  Title
+  ===============================*/
+  .text-title {
+    font-weight: 700;
+    margin: 0;
+  }
+  .text-title--large {
+    font-size: 60px;
+    line-height: 100%;
+    letter-spacing: 0.035em;
+  }
