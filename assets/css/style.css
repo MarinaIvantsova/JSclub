@@ -16,16 +16,11 @@
   --color-text-warning: #f0932b;
   --color-text-error: #eb4d4b;
 
-  --font-primary: sans-serif;
+  --font-primary: 'Montserrat', sans-serif;
 
   --path-img: './assets/img';
 }
-/*===============================
-  Common styles
-  ===============================*/
-body {
-  font-family: 'Montserrat', sans-serif;
-}
+
 
 /*===============================
   Layout
@@ -76,3 +71,28 @@ body {
     line-height: 100%;
     letter-spacing: 0.035em;
   }
+  
+  .text-title--medium {
+    font-size: 24px;
+    line-height: 125%;
+    letter-spacing: 0.045em;
+  }
+
+
+/*===============================
+  Text body
+  ===============================*/
+  .text-body {
+    line-height: 140%;
+
+  }
+ 
+  .text-body--large {
+    font-size: 24px;   
+  }
+  
+  .text-body--medium {
+    font-size: 18px;
+  }
+  
+
