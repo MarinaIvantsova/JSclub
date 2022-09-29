@@ -20,3 +20,41 @@
 
   --path-img: './assets/img';
 }
+
+
+/*===============================
+  Layout
+  ===============================*/
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.page__header {
+  
+}
+.page__content {
+  
+}
+.page__footer {
+  margin-top: auto;
+}
+
+
+.container {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+
+/*===============================
+  Content
+  ===============================*/
+
+.section {
+  position: relative;
+  padding: 75px 0;
+}
