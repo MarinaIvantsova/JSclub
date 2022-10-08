@@ -3,18 +3,19 @@
   ===============================*/
 
 :root {
-  --color-bg-primary: #fff;
-  --color-bg-accent: #686de0;
+  --color-bg-primary: #FDFEFE;
+  --color-bg-secondary: #EAECF0;
   --color-bg-success: #badc58;
   --color-bg-warning: #ffbe76;
   --color-bg-error: #ff7979;
 
-  --color-text-primary: #130f40;
-  --color-text-secondary: #95afc0;
-  --color-text-accent: #4834d4;
+  --color-text-primary: #3C3E41;
+  --color-text-accent: #8544EF; 
   --color-text-success: #6ab04c;
   --color-text-warning: #f0932b;
   --color-text-error: #eb4d4b;
+  
+  --color-border-primary: #DCE1E4;
 
   --font-primary: 'Montserrat', sans-serif;
 
@@ -95,4 +96,47 @@
     font-size: 18px;
   }
   
+  /*===============================
+  Caption
+  ===============================*/
+ 
+  .text-caption {
+line-height: 120%;
+letter-spacing: 0.15em;
+text-transform: uppercase;
+}
 
+.text-caption--large {
+  font-size: 20px;
+}
+
+.text-caption--medium {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.text-caption--small {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.text-caption--bolder {
+  font-weight: 600;
+}
+
+/*===============================
+  Page-header
+  ===============================*/
+
+  .page-header {
+    background: var(--color-bg-secondary);
+    border: 2px solid var(--color-border-primary);
+  }
+
+  .page-header__in {
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+ 
