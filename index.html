@@ -8,9 +8,9 @@
 		<title>JS club</title>
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link
-			href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
-			rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="./assets/css/reset.css">
 		<link rel="stylesheet" href="./assets/css/style.css?v=1">
 	</head>
@@ -24,23 +24,23 @@
 
 						<ul class="page-menu">
 							<li class="page-menu__item">
-								<a class="text-caption text-caption--medium page-menu__link page-menu__link--active"
+								<a class="text-caption text-caption--m page-menu__link page-menu__link--active"
 									href="#">
 									Главная
 								</a>
 							</li>
 							<li class="page-menu__item">
-								<a class="text-caption text-caption--medium page-menu__link" href="#">
+								<a class="text-caption text-caption--m page-menu__link" href="#">
 									О нас
 								</a>
 							</li>
 							<li class="page-menu__item">
-								<a class="text-caption text-caption--medium page-menu__link" href="#">
+								<a class="text-caption text-caption--m page-menu__link" href="#">
 									Команда
 								</a>
 							</li>
 							<li class="page-menu__item">
-								<a class="text-caption text-caption--medium page-menu__link" href="#">
+								<a class="text-caption text-caption--m page-menu__link" href="#">
 									Портфолио
 								</a>
 							</li>
@@ -53,26 +53,50 @@
 
 				<section class="section section-main">
 					<div class="container">
-						Hello, world!
-						<h1 class="text-title text-title--large">Мы - это coding.club</h1>
-						<p>Вы на странице клуба программистов-энтузиастов, которые вместе решили делать что-то нужное и
-							полезное для себя и сообщества.</p>
-						Портфолио
-						команда
+						<div class="section-main__content">
+							<p class="text-caption text-caption--l spacer-bottom-s">Hello, world!</p>
+
+							<h1 class="text-title text-title--l spacer-bottom-s">
+								Мы &ndash; это <span class="text-color-accent">Coding.club</span>
+							</h1>
+
+							<p class="text-body text-body--l spacer-bottom-xl">
+								Вы на странице клуба программистов-энтузиастов, которые вместе решили делать что-то нужное и полезное для себя и сообщества.
+							</p>
+
+							<div class="section-main__buttons">
+								<a
+									class="text-caption text-caption--l text-caption--m button section-main__buttons__item"
+									href="#"
+								>Портфолио</a>
+
+								<a
+									class="text-caption text-caption--l text-caption--m button section-main__buttons__item"
+									href="#"
+								>Команда</a>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section class="section section-about">
+					<div class="container container--smaller">
+						<p class="text-caption text-caption--l text-color-accent spacer-bottom-s">О нас</p>
+						<h2 class="text-title text-title--l spacer-bottom-s">Кто мы такие</h2>
+						<p class="text-body text-body--l spacer-bottom-s">Разнообразный и богатый опыт начало повседневной работы по формированию позиции позволяет оценить значение систем массового участия.</p>
+						<p class="text-body text-body--l spacer-bottom-xl">Задача организации, в особенности же рамки и место обучения кадров представляет собой интересный эксперимент проверки позиций, занимаемых участниками в отношении поставленных задач. Товарищи! рамки и место обучения кадров требуют от нас анализа системы обучения кадров, соответствует насущным потребностям.</p>
+						<img
+							src="./assets/img/picture-people.svg"
+							width="680"
+							height="527"
+							alt="Разработчики Coding Club"
+						>
 					</div>
 				</section>
 
 				<section class="section">
 					<div class="container">
-						<h2 class="text-title text-title--large">Кто мы такие</h2>
-						Разнообразный и богатый опыт начало повседневной работы по формированию позиции позволяет
-						оценить значение систем массового участия.
-					</div>
-				</section>
-
-				<section class="section">
-					<div class="container">
-						<h2 class="text-title text-title--large">Участники клуба</h2>
+						<h2 class="text-title text-title--l">Участники клуба</h2>
 						<article>
 							<h2>Рыжков Алексей</h2>
 							<p>23 года, человек-техподдержка</p>
@@ -139,7 +163,7 @@
 
 				<section class="section">
 					<div class="container">
-						<h2 class="text-title text-title--large">Наши проекты</h2>
+						<h2 class="text-title text-title--l">Наши проекты</h2>
 						Разнообразный и богатый опыт начало повседневной работы по формированию позиции позволяет
 						оценить значение систем массового участия.
 					</div>
