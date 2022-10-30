@@ -19,6 +19,7 @@
 
 	--shadow-m: -5px -5px 8px #f2f4f8, 5px 5px 7px rgba(174, 174, 192, 0.5);
 	--shadow-m-hover: inset -5px -5px 8px #f9fcff, inset 5px 5px 7px rgba(174, 174, 192, 0.75);
+	--shadow-l: 3px 3px 20px rgba(36, 65, 93, 0.302);
 
 	--border-secondary: 1px solid rgba(255, 255, 255, 0.4);
 
@@ -274,6 +275,16 @@
 }
 
 /*===============================
+  Card
+  ===============================*/
+
+.card {
+	border-radius: var(--border-radius-l);
+	box-shadow: var(--shadow-l);
+	background: linear-gradient(310.59deg, #f2f3f6 3.8%, #e5e6ec 119.99%);
+}
+
+/*===============================
   Section Main
   ===============================*/
 
@@ -325,4 +336,32 @@
 
 .section-team {
 	background-color: var(--color-bg-secondary);
+}
+
+/*===============================
+  Member card
+  ===============================*/
+
+.member-card {
+	padding: 30px;
+}
+
+.member-card__photo {
+	aspect-ratio: 1/1;
+	width: 100%;
+	background: #ccc;
+	position: relative;
+}
+
+.member-card__photo:before {
+	display: block;
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 50%;
+	height: 50%;
+	transform: translate(-50%, -50%);
+	background: url('../img/user-profile.svg') left top no-repeat;
+	opacity: 20%;
 }
