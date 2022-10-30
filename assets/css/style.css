@@ -166,7 +166,7 @@
   Text color
   ===============================*/
 
-.text-color-accent {
+.text-accent {
 	color: var(--color-text-accent);
 }
 
@@ -351,6 +351,8 @@
 	width: 100%;
 	background: #ccc;
 	position: relative;
+	border-radius: inherit;
+	overflow: hidden;
 }
 
 .member-card__photo:before {
@@ -362,6 +364,16 @@
 	width: 50%;
 	height: 50%;
 	transform: translate(-50%, -50%);
-	background: url('../img/user-profile.svg') left top no-repeat;
+	background: url('../img/user-profile.svg') 50% 50% no-repeat;
+	background-size: contain;
 	opacity: 20%;
+}
+
+.member-card__photo__img {
+	display: none;
+	object-fit: cover;
+	width: 100%;
+	height: 100%;
+	border-radius: inherit;
+	position: relative;
 }
