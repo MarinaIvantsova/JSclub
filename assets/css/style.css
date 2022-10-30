@@ -94,6 +94,8 @@
 .section {
 	position: relative;
 	padding: 75px 0;
+	border-top: solid 2px var(--color-border-primary);
+	text-align: center;
 }
 
 /*===============================
@@ -181,9 +183,20 @@
 	padding: var(--button-padding);
 	border-radius: var(--border-radius-s);
 	border: var(--border-secondary);
-	background: none;
+	background: linear-gradient(138.32deg, rgba(0, 0, 0, 0.5) 8.26%, rgba(255, 255, 255, 0.5) 91.02%),
+		#eaecf0;
+	background-blend-mode: soft-light, normal;
 	color: var(--color-text-primary);
 	text-decoration: none;
+}
+
+@media (hover: hover) {
+	.button:hover {
+		background: linear-gradient(317.7deg, rgba(0, 0, 0, 0.4) 0%, rgba(255, 255, 255, 0.4) 105.18%),
+			#eaecf0;
+		background-blend-mode: soft-light, normal;
+		box-shadow: inset -5px -5px 8px #f9fcff, inset 5px 5px 7px rgba(174, 174, 192, 0.75);
+	}
 }
 
 /*===============================
@@ -270,7 +283,8 @@
 	align-items: center;
 	overflow: hidden;
 	background-color: var(--color-bg-secondary);
-	border-bottom: solid 2px var(--color-border-primary);
+	border-top: 0;
+	text-align: left;
 }
 
 .section-main::before {
@@ -303,6 +317,12 @@
   ===============================*/
 
 .section-about {
-	text-align: center;
 }
 
+/*===============================
+  Section Team
+  ===============================*/
+
+.section-team {
+	background-color: var(--color-bg-secondary);
+}
