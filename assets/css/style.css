@@ -409,7 +409,14 @@
   ===============================*/
 
 .member-card {
-	padding: 30px;
+	--padding: 30px;
+	--width: 320px;
+	--scale: .38;
+	--photo-height: calc(var(--width) - (var(--padding * 2)));
+
+	width: var(--width);
+	padding: var(--padding);
+	overflow: hidden;
 }
 
 .member-card__photo {
@@ -419,6 +426,7 @@
 	position: relative;
 	border-radius: inherit;
 	overflow: hidden;
+	transform-origin: center top;
 }
 
 .member-card__photo:before {
@@ -444,7 +452,55 @@
 	position: relative;
 }
 
+.member-card__content {
+	position: relative;
+}
+
+.member-card__text {
+	margin-top: 20px;
+	opacity: 0;
+	position: absolute;
+	top:100%;
+	left:0;
+	width: 100%;
+
+}
+
 @media (hover: hover) {
-	.member-card:hover {
+	.member-card__photo, 
+	.member-card__contacts,
+	.member-card__content ,
+	.member-card__text {
+		transition-duration: 0.5s;
 	}
+
+	.member-card__photo, 
+	.member-card__contacts,
+	.member-card__content {
+		transition-property: transform;
+	}
+
+	.member-card__text {
+		transition-property: opacity;
+	}
+
+	.member-card:hover .member-card__photo  {
+		transform: scale(var(--scale));
+	}
+
+	.member-card:hover .member-card__content {
+		transform: translateY(
+			calc(var(--photo-height) - var(--photo-height) * var(--scale) )
+		);
+	}
+
+	.member-card:hover .member-card__text {
+		opacity: 1;
+	}
+
+
+	.member-card:hover .member-card__contacts {
+		transform: translateY(200%);
+	}
+	
 }
