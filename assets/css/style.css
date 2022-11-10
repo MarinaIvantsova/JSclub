@@ -179,20 +179,31 @@
 	width: 24px;
 	height: 24px;
 	background: var(--color-text-primary);
+	-webkit-mask-position: 50% 50%;
+	mask-position: 50% 50%;
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
 }
 
 .icon--twitter {
 	-webkit-mask-image: url('../img/icon-twitter.svg');
 	mask-image: url('../img/icon-twitter.svg');
-	-webkit-mask-position: 50% 50%;
-	mask-position: 50% 50%;
-	-webkit-mask-repeat: no-repeat;
-	mask-repeat: no-repeat;
-	
-
 }
 
+.icon--telegram {
+	-webkit-mask-image: url('../img/icon-telegram.svg');
+	mask-image: url('../img/icon-telegram.svg');
+}
 
+.icon--mail {
+	-webkit-mask-image: url('../img/icon-mail.svg');
+	mask-image: url('../img/icon-mail.svg');
+}
+
+.icon--github {
+	-webkit-mask-image: url('../img/icon-github.svg');
+	mask-image: url('../img/icon-github.svg');
+}
 
 /*===============================
   Button
@@ -223,6 +234,41 @@
 		box-shadow: inset -5px -5px 8px #f9fcff, inset 5px 5px 7px rgba(174, 174, 192, 0.75);
 	}
 }
+
+/*===============================
+ Rounded Button
+  ===============================*/
+
+.rounded-button {
+	border: var(--border-secondary);
+	background: linear-gradient(138.32deg, rgba(0, 0, 0, 0.5) 8.26%, rgba(255, 255, 255, 0.5) 91.02%),
+		#eaecf0;
+	background-blend-mode: soft-light, normal;
+	box-shadow: var(--shadow-m);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 48px;
+	height: 48px;
+	border-radius: 50%;
+
+}
+
+/*===============================
+  Rounded Buttons Group
+  ===============================*/
+
+.rounded-buttons-group {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.rounded-buttons-group__item:not(:first-child) {
+	margin-left: 20px;
+}
+
+
+
 
 /*===============================
   Page Header
