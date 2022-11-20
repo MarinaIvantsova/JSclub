@@ -33,6 +33,7 @@
 	--path-img: './assets/img';
 
 	--container-width: 1440px;
+	--container-width-smaller: 1160px;
 	--header-height: 120px;
 }
 
@@ -226,15 +227,6 @@
 	text-decoration: none;
 }
 
-@media (hover: hover) {
-	.button:hover {
-		background: linear-gradient(317.7deg, rgba(0, 0, 0, 0.4) 0%, rgba(255, 255, 255, 0.4) 105.18%),
-			#eaecf0;
-		background-blend-mode: soft-light, normal;
-		box-shadow: inset -5px -5px 8px #f9fcff, inset 5px 5px 7px rgba(174, 174, 192, 0.75);
-	}
-}
-
 /*===============================
  Rounded Button
   ===============================*/
@@ -251,6 +243,25 @@
 	width: 48px;
 	height: 48px;
 	border-radius: 50%;
+}
+
+@media (hover: hover) {
+	.rounded-button:hover .rounded-button__icon {
+		background-color: var(--color-text-accent);
+	}
+}
+
+/*===============================
+  Buttons Hover
+  ===============================*/
+
+@media (hover: hover) {
+	.button:hover, .rounded-button:hover {
+		background: linear-gradient(317.7deg, rgba(0, 0, 0, 0.4) 0%, rgba(255, 255, 255, 0.4) 105.18%),
+			#eaecf0;
+		background-blend-mode: soft-light, normal;
+		box-shadow: inset -5px -5px 8px #f9fcff, inset 5px 5px 7px rgba(174, 174, 192, 0.75);
+	}
 }
 
 /*===============================
@@ -412,7 +423,7 @@
 	--padding: 30px;
 	--width: 320px;
 	--scale: .38;
-	--photo-height: calc(var(--width) - (var(--padding * 2)));
+	--photo-height: calc(var(--width) - (var(--padding) * 2));
 
 	width: var(--width);
 	padding: var(--padding);
@@ -468,14 +479,12 @@
 
 @media (hover: hover) {
 	.member-card__photo, 
-	.member-card__contacts,
 	.member-card__content ,
 	.member-card__text {
 		transition-duration: 0.5s;
 	}
 
 	.member-card__photo, 
-	.member-card__contacts,
 	.member-card__content {
 		transition-property: transform;
 	}
@@ -490,17 +499,25 @@
 
 	.member-card:hover .member-card__content {
 		transform: translateY(
-			calc(var(--photo-height) - var(--photo-height) * var(--scale) )
+			calc((var(--photo-height) - var(--photo-height) * var(--scale)) * (-1))
 		);
 	}
 
 	.member-card:hover .member-card__text {
 		opacity: 1;
 	}
+}
 
+/*===============================
+  Member Card Group
+  ===============================*/
 
-	.member-card:hover .member-card__contacts {
-		transform: translateY(200%);
-	}
-	
+.member-card-group {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.member-card-group__item {
+	margin-top: calc(100vw); 
 }
