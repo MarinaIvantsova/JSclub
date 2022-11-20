@@ -37,6 +37,7 @@
 	--header-height: 120px;
 
 	--member-card-width: 320px;
+	--card-padding: 30px;
 }
 
 /*===============================
@@ -359,6 +360,7 @@
   ===============================*/
 
 .card {
+	padding: var(--card-padding);
 	border-radius: var(--border-radius-l);
 	box-shadow: var(--shadow-l);
 	background: linear-gradient(310.59deg, #f2f3f6 3.8%, #e5e6ec 119.99%);
@@ -423,12 +425,10 @@
   ===============================*/
 
 .member-card {
-	--padding: 30px;
 	--scale: 0.38;
-	--photo-height: calc(var(--member-card-width) - (var(--padding) * 2));
+	--photo-height: calc(var(--member-card-width) - (var(--card-padding) * 2));
 
 	width: var(--member-card-width);
-	padding: var(--padding);
 	overflow: hidden;
 }
 
@@ -531,4 +531,27 @@
 	margin-top: 0;
 	display: flex;
 	justify-content: center;
+}
+
+/*===============================
+  Project Card
+  ===============================*/
+
+.project-card {
+	width: 560px;
+	text-align: left;
+}
+
+.project-card__photo {
+	height: 350px;
+	border-radius: var(--border-radius-l);
+}
+
+.project-card__photo__img {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 100%;
+	border-radius: inherit;
+	position: relative;
 }
