@@ -35,6 +35,8 @@
 	--container-width: 1440px;
 	--container-width-smaller: 1160px;
 	--header-height: 120px;
+
+	--member-card-width: 320px;
 }
 
 /*===============================
@@ -86,7 +88,7 @@
 }
 
 .container--smaller {
-	max-width: 1160px;
+	max-width: var(--container-width-smaller);
 }
 
 /*===============================
@@ -256,7 +258,8 @@
   ===============================*/
 
 @media (hover: hover) {
-	.button:hover, .rounded-button:hover {
+	.button:hover,
+	.rounded-button:hover {
 		background: linear-gradient(317.7deg, rgba(0, 0, 0, 0.4) 0%, rgba(255, 255, 255, 0.4) 105.18%),
 			#eaecf0;
 		background-blend-mode: soft-light, normal;
@@ -421,11 +424,10 @@
 
 .member-card {
 	--padding: 30px;
-	--width: 320px;
-	--scale: .38;
-	--photo-height: calc(var(--width) - (var(--padding) * 2));
+	--scale: 0.38;
+	--photo-height: calc(var(--member-card-width) - (var(--padding) * 2));
 
-	width: var(--width);
+	width: var(--member-card-width);
 	padding: var(--padding);
 	overflow: hidden;
 }
@@ -471,20 +473,19 @@
 	margin-top: 20px;
 	opacity: 0;
 	position: absolute;
-	top:100%;
-	left:0;
+	top: 100%;
+	left: 0;
 	width: 100%;
-
 }
 
 @media (hover: hover) {
-	.member-card__photo, 
-	.member-card__content ,
+	.member-card__photo,
+	.member-card__content,
 	.member-card__text {
 		transition-duration: 0.5s;
 	}
 
-	.member-card__photo, 
+	.member-card__photo,
 	.member-card__content {
 		transition-property: transform;
 	}
@@ -493,14 +494,12 @@
 		transition-property: opacity;
 	}
 
-	.member-card:hover .member-card__photo  {
+	.member-card:hover .member-card__photo {
 		transform: scale(var(--scale));
 	}
 
 	.member-card:hover .member-card__content {
-		transform: translateY(
-			calc((var(--photo-height) - var(--photo-height) * var(--scale)) * (-1))
-		);
+		transform: translateY(calc((var(--photo-height) - var(--photo-height) * var(--scale)) * (-1)));
 	}
 
 	.member-card:hover .member-card__text {
@@ -518,6 +517,18 @@
 	justify-content: space-between;
 }
 
+.member-card-group::after {
+	content: '';
+	width: var(--member-card-width);
+}
+
 .member-card-group__item {
-	margin-top: calc(100vw); 
+	margin-top: calc((min(100vw, var(--container-width-smaller)) - 3 * var(--member-card-width)) / 2);
+}
+
+.member-card-group__item--vip {
+	width: 100%;
+	margin-top: 0;
+	display: flex;
+	justify-content: center;
 }
