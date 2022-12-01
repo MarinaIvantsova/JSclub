@@ -554,7 +554,6 @@
   ===============================*/
 
 .project-card {
-	width: 560px;
 	text-align: left;
 }
 
@@ -572,4 +571,14 @@
 	.project-card:hover .project-card__photo__img {
 		transform: scale(1.2);
 	}
+}
+
+/*===============================
+  Project Card Group
+  ===============================*/
+
+.project-card-group {
+	display: grid;
+	gap: 40px;
+	grid-template-columns: repeat(auto-fit, minmax(500px, 0.7fr));
 }
