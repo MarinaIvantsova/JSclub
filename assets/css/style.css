@@ -478,6 +478,10 @@
 	width: 100%;
 }
 
+.member-card__contacts {
+	position: relative;
+}
+
 @media (hover: hover) {
 	.member-card__photo,
 	.member-card__content,
