@@ -40,6 +40,11 @@
 
 	--member-card-width: 20rem;
 	--card-padding: 1.875rem;
+
+	--desktop-l: 1440px;
+	--desktop-m: 1280px;
+	--tablet: 1024px;
+	--mobile: 768px;
 }
 
 /*===============================
@@ -48,6 +53,30 @@
 
 html {
 	font-size: 16px;
+}
+
+@media (max-width: 1440px) {
+	html {
+		font-size: 12px;
+	}
+}
+
+@media (max-width: 1280px) {
+	html {
+		font-size: 11px;
+	}
+}
+
+@media (max-width: 1024px) {
+	html {
+		font-size: 16px;
+	}
+}
+
+@media (max-width: 768px) {
+	html {
+		font-size: 16px;
+	}
 }
 
 body {
