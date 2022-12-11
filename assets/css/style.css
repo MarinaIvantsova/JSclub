@@ -43,6 +43,19 @@
 }
 
 /*===============================
+  Base
+	===============================*/
+
+html {
+	font-size: 16px;
+}
+
+body {
+	background: var(--color-bg-primary);
+	color: var(--color-text-primary);
+}
+
+/*===============================
   Spacer
   ===============================*/
 
@@ -471,6 +484,8 @@
 	--scale: 0.38;
 	--photo-height: calc(var(--member-card-width) - (var(--card-padding) * 2));
 
+	display: flex;
+	flex-direction: column;
 	width: var(--member-card-width);
 	overflow: hidden;
 }
@@ -518,6 +533,7 @@
 
 .member-card__contacts {
 	position: relative;
+	margin-top: auto;
 }
 
 @media (hover: hover) {
@@ -565,6 +581,7 @@
 }
 
 .member-card-group__item {
+	display: flex;
 	margin-top: calc((min(100vw, var(--container-width-smaller)) - 3 * var(--member-card-width)) / 2);
 }
 
@@ -574,6 +591,8 @@
 	display: flex;
 	justify-content: center;
 }
+
+
 
 /*===============================
   Project Card

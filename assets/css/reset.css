@@ -137,9 +137,6 @@ table {
 *:after {
 	box-sizing: border-box;
 }
-html {
-	font-size: 16px;
-}
 html,
 body,
 button,
