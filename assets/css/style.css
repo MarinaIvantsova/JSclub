@@ -356,6 +356,8 @@ body {
 .page-header {
 	background: var(--color-bg-secondary);
 	border-bottom: 0.125rem solid var(--color-border-primary);
+	z-index: 2;
+	position: relative;
 }
 
 .page-header__in {
@@ -369,47 +371,63 @@ body {
   Page Menu
   ===============================*/
 
-.page-menu {
-	display: flex;
-	box-shadow: var(--shadow-m);
-	border-radius: var(--border-radius-s);
-	border: var(--border-secondary);
-}
-
-.page-menu__item:not(:first-child) {
-	margin: 0 0 0 0.625rem;
-}
-
 .page-menu__link {
-	position: relative;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-	text-decoration: none;
 	color: var(--color-text-primary);
-	padding: var(--button-padding);
-	height: 4.375rem;
+	text-decoration: none;
 }
 
-.page-menu__link:after {
-	content: ' ';
-	display: none;
-	position: absolute;
-	border-radius: var(--border-radius-s);
-	border: var(--border-secondary);
-	left: 0;
-	top: 0;
-	bottom: 0;
-	right: 0;
-	box-shadow: var(--shadow-m);
+@media (min-width: 1025px) {
+	.page-menu {
+		display: flex;
+		box-shadow: var(--shadow-m);
+		border-radius: var(--border-radius-s);
+		border: var(--border-secondary);
+	}
+
+	.page-menu__item:not(:first-child) {
+		margin: 0 0 0 0.625rem;
+	}
+
+	.page-menu__link {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		padding: var(--button-padding);
+		height: 4.375rem;
+	}
+
+	.page-menu__link:after {
+		content: ' ';
+		display: none;
+		position: absolute;
+		border-radius: var(--border-radius-s);
+		border: var(--border-secondary);
+		left: 0;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		box-shadow: var(--shadow-m);
+	}
+
+	.page-menu__link--active {
+		pointer-events: none;
+	}
+	.page-menu__link--active::after {
+		display: block;
+	}
 }
 
-.page-menu__link--active {
-	pointer-events: none;
-}
-.page-menu__link--active::after {
-	display: block;
+@media (max-width: 1024px) {
+	.page-menu {
+		position: fixed;
+		left: 0;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		background-color: var(--color-bg-secondary);
+	}
 }
 
 @media (hover: hover) {
@@ -420,6 +438,41 @@ body {
 
 	.page-menu__link:hover:after {
 		display: block;
+	}
+}
+
+/*=========================
+  burger
+===========================*/
+
+.burger {
+	outline: none;
+	border: none;
+	background: none;
+	height: 3.125rem;
+	width: 3.125rem;
+	display: flex;
+	flex-direction: column;
+}
+
+.burger__dash {
+	width: inherit;
+	height: 0.3125rem;
+	background-color: var(--color-text-primary);
+	margin: 0.375rem 0;
+}
+
+.burger__dash:first-child {
+	margin-top: 0;
+}
+
+.burger__dash:last-child {
+	margin-bottom: 0;
+}
+
+@media (min-width: 1025px) {
+	.burger {
+		display: none;
 	}
 }
 
@@ -620,8 +673,6 @@ body {
 	display: flex;
 	justify-content: center;
 }
-
-
 
 /*===============================
   Project Card
