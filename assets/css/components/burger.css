@@ -1,0 +1,38 @@
+/*=========================
+  Burger
+===========================*/
+
+.burger {
+	outline: none;
+	border: none;
+	background: none;
+	height: 3.125rem;
+	width: 3.125rem;
+	display: flex;
+	flex-direction: column;
+	z-index: 2;
+	cursor: pointer;
+	padding: 0;
+	justify-content: center;
+}
+
+.burger__dash {
+	width: inherit;
+	height: 0.3125rem;
+	background-color: var(--color-text-primary);
+	margin: 0.375rem 0;
+}
+
+.burger__dash:first-child {
+	margin-top: 0;
+}
+
+.burger__dash:last-child {
+	margin-bottom: 0;
+}
+
+@media (min-width: 1025px) {
+	.burger {
+		display: none;
+	}
+}

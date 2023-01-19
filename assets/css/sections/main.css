@@ -1,0 +1,40 @@
+/*===============================
+  Section Main
+  ===============================*/
+
+.section-main {
+	min-height: calc(100vh - var(--header-height));
+	display: flex;
+	align-items: center;
+	overflow: hidden;
+	background-color: var(--color-bg-secondary);
+	border-top: 0;
+	text-align: left;
+}
+
+.section-main::before {
+	position: absolute;
+	top: 50%;
+	right: 50%;
+	transform: translate(calc(var(--container-width) / 2), -50%);
+	content: '';
+	display: block;
+	width: 50rem;
+	height: 39.875rem;
+	background-image: url('../img/bg-tag.svg');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.section-main__content {
+	max-width: 45rem;
+}
+
+.section-main__buttons {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1.75rem 3.75rem;
+}
+.section-main__buttons__item:not(:first-child) {
+	/* margin-left: 3.75rem; */
+}

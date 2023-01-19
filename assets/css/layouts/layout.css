@@ -1,0 +1,32 @@
+/*===============================
+  Layout
+  ===============================*/
+
+.page {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+}
+.page--has-fixed-header .section-main {
+	padding-top: var(--header-height);
+}
+
+.page__header {
+}
+.page__content {
+}
+.page__footer {
+	margin-top: auto;
+}
+
+.container {
+	max-width: var(--container-width);
+	width: 100%;
+	margin: 0 auto;
+	padding: 0 1.25rem;
+}
+
+.container--smaller {
+	max-width: var(--container-width-smaller);
+}
