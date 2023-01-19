@@ -1,0 +1,17 @@
+/*===============================
+  Page Header
+  ===============================*/
+
+  .page-header {
+    background: var(--color-bg-secondary);
+    border-bottom: 0.125rem solid var(--color-border-primary);
+    z-index: 2;
+    position: relative;
+  }
+  
+  .page-header__in {
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
