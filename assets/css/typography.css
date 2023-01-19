@@ -1,0 +1,85 @@
+/*===============================
+  Title
+===============================*/
+
+.text-title {
+	font-weight: 700;
+}
+
+.text-title--l {
+	font-size: 3.75rem;
+	line-height: 100%;
+	letter-spacing: 0.035em;
+}
+
+.text-title--m {
+	font-size: 1.5rem;
+	line-height: 125%;
+	letter-spacing: 0.045em;
+}
+
+/*===============================
+  Text Body
+  ===============================*/
+.text-body {
+	line-height: 140%;
+}
+
+.text-body--l {
+	font-size: 1.5rem;
+}
+
+.text-body--m {
+	font-size: 1.125rem;
+}
+
+/*===============================
+  Text Link
+  ===============================*/
+
+.text-link {
+	color: var(--color-text-accent);
+	text-decoration: none;
+	border-bottom: 0.0625rem solid transparent;
+}
+
+@media (hover: hover) {
+	.text-link:hover {
+		border-bottom-color: var(--color-text-accent);
+	}
+}
+/*===============================
+  Caption
+  ===============================*/
+
+.text-caption {
+	line-height: 120%;
+	letter-spacing: 0.15em;
+	text-transform: uppercase;
+}
+
+.text-caption--l {
+	font-size: 1.25rem;
+}
+
+.text-caption--m {
+	font-size: 1rem;
+	font-weight: 500;
+}
+
+.text-caption--s {
+	font-size: 0.875rem;
+	font-weight: 500;
+}
+
+.text-caption--bolder {
+	font-weight: 600;
+}
+
+/*===============================
+  Text color
+  ===============================*/
+
+.text-accent {
+	color: var(--color-text-accent);
+}
