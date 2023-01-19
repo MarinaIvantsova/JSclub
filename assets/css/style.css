@@ -250,6 +250,7 @@ body {
 	mask-size: contain;
 }
 
+
 .icon--twitter {
 	-webkit-mask-image: url('../img/icon-twitter.svg');
 	mask-image: url('../img/icon-twitter.svg');
@@ -268,11 +269,6 @@ body {
 .icon--github {
 	-webkit-mask-image: url('../img/icon-github.svg');
 	mask-image: url('../img/icon-github.svg');
-}
-
-.icon--website {
-	-webkit-mask-image: url('../img/icon-website.svg');
-	mask-image: url('../img/icon-website.svg');
 }
 
 /*===============================
@@ -341,9 +337,11 @@ body {
 
 .rounded-buttons-group {
 	display: flex;
-	justify-content: center;
 	flex-wrap: wrap;
-	gap: 1.25rem;
+}
+
+.rounded-buttons-group__item:not(:first-child) {
+	margin-left: 1.25rem;
 }
 
 /*===============================
@@ -432,20 +430,6 @@ body {
 		bottom: 0;
 		right: 0;
 		background-color: var(--color-bg-secondary);
-		text-align: center;
-		display: flex;
-		justify-content: center;
-		flex-direction: column;
-	}
-
-	.page-menu__link {
-		display: block;
-		padding: 1rem;
-		font-size: 1.5625rem;
-	}
-
-	.page-menu__link--active {
-		color: var(--color-text-accent);
 	}
 }
 
@@ -752,3 +736,6 @@ body {
 .page-footer__copy {
 	text-align: right;
 }
+
+
+
