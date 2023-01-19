@@ -62,12 +62,18 @@
       display: flex;
       justify-content: center;
       flex-direction: column;
+      transform: translateX(-100%);
+      transition: transform 0.5s;
+    }
+
+    .page-menu--opened {
+      transform: translateX(0);
     }
   
     .page-menu__link {
       display: block;
-      padding: 1rem;
-      font-size: 1.5625rem;
+      padding: 2rem 1rem;
+      font-size: 2rem;
     }
   
     .page-menu__link--active {
