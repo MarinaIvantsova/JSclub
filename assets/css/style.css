@@ -270,6 +270,11 @@ body {
 	mask-image: url('../img/icon-github.svg');
 }
 
+.icon--website {
+	-webkit-mask-image: url('../img/icon-website.svg');
+	mask-image: url('../img/icon-website.svg');
+}
+
 /*===============================
   Button
   ===============================*/
@@ -336,11 +341,9 @@ body {
 
 .rounded-buttons-group {
 	display: flex;
+	justify-content: center;
 	flex-wrap: wrap;
-}
-
-.rounded-buttons-group__item:not(:first-child) {
-	margin-left: 1.25rem;
+	gap: 1.25rem;
 }
 
 /*===============================
