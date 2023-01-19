@@ -12,6 +12,8 @@
 	flex-direction: column;
 	z-index: 2;
 	cursor: pointer;
+	padding: 0;
+	justify-content: center;
 }
 
 .burger__dash {

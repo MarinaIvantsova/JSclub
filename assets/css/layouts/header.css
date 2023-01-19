@@ -2,16 +2,23 @@
   Page Header
   ===============================*/
 
-  .page-header {
-    background: var(--color-bg-secondary);
-    border-bottom: 0.125rem solid var(--color-border-primary);
-    z-index: 2;
-    position: relative;
-  }
-  
-  .page-header__in {
-    height: var(--header-height);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+.page-header {
+	background: var(--color-bg-secondary);
+	border-bottom: 0.125rem solid var(--color-border-primary);
+	z-index: 2;
+	position: relative;
+}
+
+.page--has-fixed-header .page-header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+
+.page-header__in {
+	height: var(--header-height);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}

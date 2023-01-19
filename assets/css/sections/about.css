@@ -2,5 +2,13 @@
   Section About
   ===============================*/
 
-  .section-about {
-  }
+.section-about {
+}
+
+@media (max-width: 1024px) {
+	.section-about__img {
+		width: auto;
+		height: auto;
+		max-width: 100%;
+	}
+}

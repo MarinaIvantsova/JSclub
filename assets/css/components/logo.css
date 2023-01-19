@@ -2,7 +2,10 @@
   Logo
   ===============================*/
 
-  .logo {
-    display: block;
-    z-index: 2;
-  }
+.logo {
+	display: block;
+	z-index: 2;
+
+	width: 15rem;
+	height: auto;
+}
