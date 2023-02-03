@@ -9,7 +9,7 @@
 	position: relative;
 }
 
-.page--has-fixed-header .page-header {
+.page-header--fixed {
 	position: fixed;
 	top: 0;
 	left: 0;

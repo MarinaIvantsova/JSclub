@@ -3,7 +3,7 @@
   ===============================*/
 
 .section-main {
-	min-height: calc(100vh - var(--header-height));
+	min-height: 100vh;
 	display: flex;
 	align-items: center;
 	overflow: hidden;
@@ -21,7 +21,7 @@
 	display: block;
 	width: 50rem;
 	height: 39.875rem;
-	background-image: url('../img/bg-tag.svg');
+	background-image: url('../../img/bg-tag.svg');
 	background-repeat: no-repeat;
 	background-size: cover;
 }
@@ -37,4 +37,27 @@
 }
 .section-main__buttons__item:not(:first-child) {
 	/* margin-left: 3.75rem; */
+}
+
+.section-main--has-fixed-header  {
+	padding-top: var(--header-height);
+}
+
+@media (max-width: 768px) {
+	.section-main::before {
+		position: absolute;
+		top: 45%;
+    right: 20px;
+    transform: translateY(-100%);
+    content: '';
+    display: block;
+    width: 50%;
+		height: auto;
+    aspect-ratio: 1/1;
+    background-image: url(../../img/bg-tag.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 50%;
+		pointer-events: none;
+	}
 }
