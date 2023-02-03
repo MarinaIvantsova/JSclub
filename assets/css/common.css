@@ -34,3 +34,8 @@ body {
 	background: var(--color-bg-primary);
 	color: var(--color-text-primary);
 }
+
+.body--menu-opened {
+	overflow: hidden;
+	/* position: fixed; */
+}
