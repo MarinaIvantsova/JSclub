@@ -137,6 +137,7 @@
 	}
 
 	.member-card-group__item {
+		display: flex;
 	}
 
 	.member-card-group__item--vip {
