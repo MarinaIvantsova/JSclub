@@ -202,5 +202,5 @@
 .project-card-group {
 	display: grid;
 	gap: 2.5rem;
-	grid-template-columns: repeat(auto-fit, minmax(31.25rem, 0.7fr));
+	grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
 }
