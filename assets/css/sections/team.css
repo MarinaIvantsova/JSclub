@@ -2,6 +2,13 @@
   Section Team
   ===============================*/
 
-  .section-team {
-    background-color: var(--color-bg-secondary);
-  }
+.section-team {
+	background-color: var(--color-bg-secondary);
+}
+
+@media (max-width: 768px) {
+	.section-team__cards {
+		margin: 0 -1.25em;
+		padding: 1.25em;
+	}
+}
