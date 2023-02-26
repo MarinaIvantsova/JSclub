@@ -3,24 +3,24 @@
 	===============================*/
 
 html {
-	font-size: 16px;
+	font-size: 100%;
 }
 
 @media (max-width: 1440px) {
 	html {
-		font-size: 12px;
+		font-size: 75%;
 	}
 }
 
 @media (max-width: 1280px) {
 	html {
-		font-size: 11px;
+		font-size: 68.75%;
 	}
 }
 
 @media (max-width: 1024px) {
 	html {
-		font-size: 10px;
+		font-size: 62.5%;
 	}
 }
 /*   
