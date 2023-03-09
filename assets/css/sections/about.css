@@ -2,9 +2,6 @@
   Section About
   ===============================*/
 
-.section-about {
-}
-
 @media (max-width: 1024px) {
 	.section-about__img {
 		width: auto;

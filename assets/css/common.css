@@ -23,13 +23,7 @@ html {
 		font-size: 62.5%;
 	}
 }
-/*   
-  @media (max-width: 768px) {
-    html {
-      font-size: 16px;
-    }
-  }
-   */
+
 body {
 	background: var(--color-bg-primary);
 	color: var(--color-text-primary);
@@ -37,5 +31,4 @@ body {
 
 .body--menu-opened {
 	overflow: hidden;
-	/* position: fixed; */
 }

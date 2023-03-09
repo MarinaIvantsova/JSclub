@@ -2,22 +2,22 @@
   Spacer
   ===============================*/
 
-  .spacer-bottom-xs {
-    margin-bottom: 0.625rem;
-  }
-  
-  .spacer-bottom-s {
-    margin-bottom: 1.25rem;
-  }
-  
-  .spacer-bottom-m {
-    margin-bottom: 1.5625rem;
-  }
-  
-  .spacer-bottom-l {
-    margin-bottom: 1.875rem;
-  }
-  
-  .spacer-bottom-xl {
-    margin-bottom: 4.6875rem;
-  }
+.spacer-bottom-xs {
+	margin-bottom: 0.625rem;
+}
+
+.spacer-bottom-s {
+	margin-bottom: 1.25rem;
+}
+
+.spacer-bottom-m {
+	margin-bottom: 1.5625rem;
+}
+
+.spacer-bottom-l {
+	margin-bottom: 1.875rem;
+}
+
+.spacer-bottom-xl {
+	margin-bottom: 4.6875rem;
+}

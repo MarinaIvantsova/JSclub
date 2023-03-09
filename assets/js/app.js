@@ -1,3 +1,5 @@
+let burger;
+
 const toggleClass = (hash, className = 'page-menu__link--active') => {
 	if (hash) {
 		const link = document.querySelector(`a[href="${hash}"]`);
@@ -7,7 +9,6 @@ const toggleClass = (hash, className = 'page-menu__link--active') => {
 };
 
 const toggleMobileMenu = force => {
-	const burger = document.querySelector('.burger');
 	const menu = document.querySelector('.page-menu');
 
 	burger.classList.toggle('burger--opened', force);
@@ -16,7 +17,7 @@ const toggleMobileMenu = force => {
 };
 
 const init = () => {
-	const burger = document.querySelector('.burger');
+	burger = document.querySelector('.burger');
 
 	burger.addEventListener('click', () => toggleMobileMenu());
 

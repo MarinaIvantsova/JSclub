@@ -72,6 +72,10 @@
 	position: relative;
 }
 
+.member-card__status {
+	display: none;
+}
+
 .member-card__text {
 	margin-top: 1.25rem;
 	opacity: 0;
@@ -190,6 +194,7 @@
 	.project-card__photo__img {
 		transition: transform 0.5s;
 	}
+
 	.project-card:hover .project-card__photo__img {
 		transform: scale(1.2);
 	}

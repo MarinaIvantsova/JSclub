@@ -1,17 +1,22 @@
 @import url('./reset.css');
 @import url('./variables.css');
 @import url('./common.css');
+
 @import url('./helpers/spacers.css');
+
 @import url('./layouts/layout.css');
 @import url('./layouts/header.css');
 @import url('./layouts/footer.css');
+
 @import url('./typography.css');
+
 @import url('./components/icons.css');
 @import url('./components/buttons.css');
 @import url('./components/menu.css');
 @import url('./components/burger.css');
 @import url('./components/card.css');
 @import url('./components/logo.css');
+
 @import url('./sections/common.css');
 @import url('./sections/main.css');
 @import url('./sections/about.css');

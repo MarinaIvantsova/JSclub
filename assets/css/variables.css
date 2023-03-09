@@ -2,47 +2,47 @@
   Variables
   ===============================*/
 
-  :root {
-    --color-bg-primary: #fdfefe;
-    --color-bg-secondary: #eaecf0;
-    --color-bg-success: #badc58;
-    --color-bg-warning: #ffbe76;
-    --color-bg-error: #ff7979;
-  
-    --color-text-primary: #3c3e41;
-    --color-text-accent: #8544ef;
-    --color-text-success: #6ab04c;
-    --color-text-warning: #f0932b;
-    --color-text-error: #eb4d4b;
-  
-    --color-border-primary: #dce1e4;
-  
-    --shadow-m: -0.3125rem -0.3125rem 0.5rem #f2f4f8,
-      0.3125rem 0.3125rem 0.4375rem rgba(174, 174, 192, 0.5);
-    --shadow-m-hover: inset -0.3125rem -0.3125rem 0.5rem #f9fcff,
-      inset 0.3125rem 0.3125rem 0.4375rem rgba(174, 174, 192, 0.75);
-    --shadow-l: 0.1875rem 0.1875rem 1.25rem rgba(36, 65, 93, 0.302);
-  
-    --border-secondary: 0.0625rem solid rgba(255, 255, 255, 0.4);
-  
-    --border-radius-s: 0.375rem;
-    --border-radius-l: 0.75rem;
-  
-    --button-padding: 0.3125rem 3.125rem;
-  
-    --font-primary: 'Montserrat', sans-serif;
-  
-    --path-img: './assets/img';
-  
-    --container-width: 90rem;
-    --container-width-smaller: 72.5rem;
-    --header-height: 7.5rem;
-  
-    --member-card-width: 20rem;
-    --card-padding: 1.875rem;
-  
-    --desktop-l: 1440px;
-    --desktop-m: 1280px;
-    --tablet: 1024px;
-    --mobile: 768px;
-  }
+:root {
+	--color-bg-primary: #fdfefe;
+	--color-bg-secondary: #eaecf0;
+	--color-bg-success: #badc58;
+	--color-bg-warning: #ffbe76;
+	--color-bg-error: #ff7979;
+
+	--color-text-primary: #3c3e41;
+	--color-text-accent: #8544ef;
+	--color-text-success: #6ab04c;
+	--color-text-warning: #f0932b;
+	--color-text-error: #eb4d4b;
+
+	--color-border-primary: #dce1e4;
+
+	--shadow-m: -0.3125rem -0.3125rem 0.5rem #f2f4f8,
+		0.3125rem 0.3125rem 0.4375rem rgba(174, 174, 192, 0.5);
+	--shadow-m-hover: inset -0.3125rem -0.3125rem 0.5rem #f9fcff,
+		inset 0.3125rem 0.3125rem 0.4375rem rgba(174, 174, 192, 0.75);
+	--shadow-l: 0.1875rem 0.1875rem 1.25rem rgba(36, 65, 93, 0.302);
+
+	--border-secondary: 0.0625rem solid rgba(255, 255, 255, 0.4);
+
+	--border-radius-s: 0.375rem;
+	--border-radius-l: 0.75rem;
+
+	--button-padding: 0.3125rem 3.125rem;
+
+	--font-primary: 'Montserrat', sans-serif;
+
+	--path-img: './assets/img';
+
+	--container-width: 90rem;
+	--container-width-smaller: 72.5rem;
+	--header-height: 7.5rem;
+
+	--member-card-width: 20rem;
+	--card-padding: 1.875rem;
+
+	--desktop-l: 1440px;
+	--desktop-m: 1280px;
+	--tablet: 1024px;
+	--mobile: 768px;
+}
