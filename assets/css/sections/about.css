@@ -2,6 +2,10 @@
   Section About
   ===============================*/
 
+.section-about {
+	text-align: left;
+}
+
 @media (max-width: 1024px) {
 	.section-about__img {
 		width: auto;
