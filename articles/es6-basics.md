@@ -7,7 +7,8 @@
 Этот процесс называется «**разрешение имён**» или «**разыменование**».
 
 Рассмотрим пример:
-```
+
+```javascript
 var a = 3;
 function f() {
    a = 4;
@@ -27,14 +28,13 @@ f();
 > The outer environment reference is used to model the logical nesting of Lexical Environment values. The outer reference of a (inner) Lexical Environment is a reference to the Lexical Environment that logically surrounds the inner Lexical Environment. An outer Lexical Environment may, of course, have its own outer Lexical Environment. A Lexical Environment may serve as the outer environment for multiple inner Lexical Environments. For example, if a FunctionDeclaration contains two nested FunctionDeclarations then the Lexical Environments of each of the nested functions will have as their outer Lexical Environment the Lexical Environment of the current evaluation of the surrounding function.
 
 
-Псевдокод:
-```
+```javascript
 
 // начинаем выполнение программы, мы вначале всегда находимся в «глобальном контексте»
 
 
 // создали объект для хранения переменных нашего глобального контекста
-$GlobalEnvironmentRecord = {};
+let $GlobalEnvironmentRecord = {};
 
 // указали, что есть «ключ» `a`, пока «пустой»
 $GlobalEnvironmentRecord[‘a’] = undefined;
@@ -44,8 +44,10 @@ $GlobalEnvironmentRecord[‘f’] = function () {...}
 
 var a = 3;
 
-// во время выполнения кода **нашли** ключ `a` в объекте глобальных переменных
-// и присвоили этому `a` значение 3
+// во время выполнения этого кода нужно найти, где же наша `a`:
+   // 1. смотрим в $GlobalEnvironmentRecord (объект переменных нашего контекста)
+   // нашли! Устанавливаем $GlobalEnvironmentRecord[‘a’] = 3
+
 $GlobalEnvironmentRecord[‘a’] = 3;
 
 
@@ -59,14 +61,11 @@ function f() {
    // важно: **указали ссылку на внешний для нашей функции environment record**
    $FEnvironmentRecord[‘outer’] = $GlobalEnvironmentRecord;
 
-   // указали ссылку на объект arguments
-   $FEnvironmentRecord[‘arguments’] = argumentsObject; // дальше обсудим
-
    // пришли к выполнению кода
 
    a = 4;
 
-   // запускаем поиск:
+   // во время выполнения этого кода нужно найти, где же наша `a`:
    // 1. смотрим в $FEnvironmentRecord (объект переменных нашего контекста)
    // 2. если не нашли, смотрим в $FEnvironmentRecord[‘parent’]
    // нашли! Устанавливаем $FEnvironmentRecord[‘parent’][‘a’] = 4
@@ -77,4 +76,36 @@ f();
 
 ```
 
+Процесс поиска идентификатора переменных идёт по всем контекстам до самого верха, до глобального контекста.
+
+Если идентификатор переменной не найден нигде, даже в глобальном контексте, JS VM бросает ReferenceError.
+
+Рассмотрим пример:
+
+```javascript
+
+  // создали объект для хранения переменных нашего глобального контекста
+  $GlobalEnvironmentRecord = {};
+
+  // указали, что есть «ключ» `a`, пока «пустой»
+  $GlobalEnvironmentRecord[‘a’] = undefined;
+
+  // указали, что есть ключ `f`, ссылающийся на функцию f, мы её сразу определяем
+  $GlobalEnvironmentRecord[‘f’] = function () {...}
+
+  var a = 3;
+
+  function f() {
+     var a = 4;
+
+     function x() {
+        a = 5;
+     }
+
+     x();
+  }
+
+  f();
+
+```
 
