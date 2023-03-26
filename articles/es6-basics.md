@@ -203,10 +203,11 @@ function x() {
   let $XEnvironmentRecord = {};
   $XEnvironmentRecord["a"] = undefined;
   $XEnvironmentRecord["y"] = function () {...}
+  $XEnvironmentRecord["outer"] = $GlobalEnvironmentModel;
 
   let a = 4;
 
-  // поиск 1. смотрим в наш локальны1 $XEnvironmentRecord, нашли!
+  // поиск 1. смотрим в наш локальный $XEnvironmentRecord, нашли!
   $XEnvironmentRecord["a"] = 4;
 
   function y() {
