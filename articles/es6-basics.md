@@ -1,6 +1,4 @@
-# 8. Executable Code and Execution Contexts
-
-## 8.1 Lexical Environments
+# Разрешение имён
 
 Когда во время исполнения кода виртуальная машина JS (VM в дальнейшем) встречает выражение `a = 3` или `alert(a)`, ей нужно понять, куда указывает `a`, чтобы получить (или установить) значение.
 
@@ -9,7 +7,7 @@
 Рассмотрим пример:
 
 ```javascript
-var a = 3;
+let a = 3;
 function f() {
    a = 4;
 }
@@ -31,24 +29,24 @@ f();
 ```javascript
 
 // начиная выполнение программы, мы вначале всегда находимся в «глобальном контексте»
-// переменная — это пара **идентификатор** и **значение**, и эту пару где-то нужно хранить.
+// переменная — это пара идентификатор и значение, и эту пару где-то нужно хранить.
 
-// создаём объект для хранения переменных нашего глобального контекста
+// VM создаёт объект для хранения переменных нашего глобального контекста
 let $GlobalEnvironmentRecord = {};
 
 // указали, что есть «ключ» `a`, пока «пустой»
-$GlobalEnvironmentRecord[‘a’] = undefined;
+$GlobalEnvironmentRecord["a"] = undefined;
 
 // указали, что есть ключ `f`, ссылающийся на функцию f, мы её сразу определяем
-$GlobalEnvironmentRecord[‘f’] = function () {...}
+$GlobalEnvironmentRecord["f"] = function () {...}
 
-var a = 3;
+let a = 3;
 
    // во время выполнения этого кода нужно найти, где же наша `a`:
    // 1. смотрим в текущем объекте хранения переменных нашего глобального контекста $GlobalEnvironmentRecord
-   // нашли! Устанавливаем $GlobalEnvironmentRecord[‘a’] = 3
+   // нашли! Устанавливаем $GlobalEnvironmentRecord["a"] = 3
 
-$GlobalEnvironmentRecord[‘a’] = 3;
+$GlobalEnvironmentRecord["a"] = 3;
 
 
 function f() {
@@ -60,7 +58,7 @@ function f() {
 
    // ВАЖНО: каждая функция должна уметь смотреть наружу себя
    // указали ссылку на внешний для нашей функции environment record
-   $FEnvironmentRecord[‘outer’] = $GlobalEnvironmentRecord;
+   $FEnvironmentRecord["outer"] = $GlobalEnvironmentRecord;
 
    // пришли к выполнению кода
 
@@ -68,8 +66,8 @@ function f() {
 
    // во время выполнения этого кода нужно найти, где же наша `a`:
    // 1. сначала смотрим у нас: в $FEnvironmentRecord (объект переменных нашего контекста)
-   // 2. если не нашли, смотрим наружу: в $FEnvironmentRecord[‘parent’]
-   // нашли! Устанавливаем $FEnvironmentRecord[‘parent’][‘a’] = 4
+   // 2. если не нашли, смотрим наружу: в $FEnvironmentRecord["outer"]
+   // $FEnvironmentRecord["outer"]["a"] = 4 (то есть $GlobalEnvironmentRecord["a"] = 4)
 
 }
 
@@ -85,9 +83,9 @@ f();
 
 ```javascript
 
-  var a = 3;
+  let a = 3;
   function f() {
-     var a = 4;
+    let a = 4;
 
      function x() {
         a = 5;
@@ -103,36 +101,42 @@ f();
 ```javascript
 
   let $GlobalEnvironmentRecord = {};
-  $GlobalEnvironmentRecord[‘a’] = undefined;
-  $GlobalEnvironmentRecord[‘f’] = function () {...}
+  $GlobalEnvironmentRecord["a"] = undefined;
+  $GlobalEnvironmentRecord["f"] = function () {...}
 
-  var a = 3;
+  let a = 3;
 
   // поиск 1. смотрим в $GlobalEnvironmentRecord, нашли!
-  $GlobalEnvironmentRecord[‘a’] = 3;
+  $GlobalEnvironmentRecord["a"] = 3;
 
   function f() {
 
      let $FEnvironmentRecord = {};
-     $FEnvironmentRecord[‘a’] = undefined;
-     $FEnvironmentRecord[‘x’] = function () {...}
+     $FEnvironmentRecord["a"] = undefined;
+     $FEnvironmentRecord["x"] = function () {...}
 
-     var a = 4;
+     // указали ссылку на внешний для нашей функции environment record
+     $FEnvironmentRecord["outer"] = $GlobalEnvironmentRecord;
+
+     let a = 4;
 
      // поиск 1. смотрим в $FEnvironmentRecord, нашли!
-     // в родительский $GlobalEnvironmentRecord даже и ходить не пришлось
-     $FEnvironmentRecord[‘a’] = 4;
+     // в родительский $FEnvironmentRecord["outer"] даже и ходить не пришлось
+     $FEnvironmentRecord["a"] = 4;
 
      function x() {
 
        let $XEnvironmentRecord = {};
 
+       // указали ссылку на внешний для нашей функции environment record
+       $XEnvironmentRecord["outer"] = $FEnvironmentRecord;
+
        a = 5;
 
        // поиск 1. смотрим в $XEnvironmentRecord, не видим!
-       // поиск 2. смотрим в родительский $FEnvironmentRecord, нашли!
-       // в $GlobalEnvironmentRecord смотреть не пришлось
-       $FEnvironmentRecord[‘a’] = 4;
+       // поиск 2. смотрим в родительский $XEnvironmentRecord["outer"], нашли!
+       // в прародительский смотреть не пришлось
+       $FEnvironmentRecord["a"] = 4;
      }
 
      x();
