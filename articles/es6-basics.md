@@ -78,11 +78,24 @@ f();
 
 Процесс поиска идентификатора переменных идёт по всем контекстам до самого верха, до глобального контекста.
 
-**Если идентификатор переменной не найден нигде, даже в глобальном контексте, JS VM бросает _ReferenceError_.**
+**Если идентификатор переменной не найден нигде, даже в глобальном контексте, JS VM бросает _ReferenceError_:**
 
 ```javascript
+
+let $GlobalEnvironmentRecord = {};
+$GlobalEnvironmentRecord["b"] = function () {...}
+
 function b () {
-   alert(c);
+
+  let $BEnvironmentRecord = {};
+  $BEnvironmentRecord["outer"] = $GlobalEnvironmentRecord;
+
+  alert(c);
+
+  // поиск 1. смотрим в $BEnvironmentRecord, не видим!
+  // поиск 2. смотрим в родительский $BEnvironmentRecord["outer"], то есть в $GlobalEnvironmentRecord
+  // не нашлось! бросаем ReferenceError
+ 
 }
 b();
 ```
