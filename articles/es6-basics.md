@@ -191,4 +191,45 @@ z();
 
 Мы видим, что выводится `4`. Как же так?
 
+Кажется, когда мы сделали `return y`, функция `y` должна была бы «забыть» об `a`?
+
+```javascript
+let $GlobalEnvironmentRecord = {};
+$GlobalEnvironmentRecord["x"] = function () {...}
+
+function x() {
+
+  let $XEnvironmentRecord = {};
+  $XEnvironmentRecord["a"] = undefined;
+  $XEnvironmentRecord["y"] = function () {...}
+
+  let a = 4;
+
+  // поиск 1. смотрим в наш локальны1 $XEnvironmentRecord, нашли!
+  $XEnvironmentRecord["a"] = 4;
+
+  function y() {
+
+    let $YEnvironmentRecord = {};
+    $YEnvironmentRecord["outer"] = $XEnvironmentRecord;
+
+    alert(a);
+
+    // поиск 1. сначала смотрим у нас в $YEnvironmentRecord
+    // поиск 2. Не нашли! смотрим наружу: в $XEnvironmentRecord["outer"]
+    // поиск 3. Нашли там! используем:
+    alert($YEnvironmentRecord["outer"]["a"])
+
+  }
+
+  return y;
+  // поиск 1. сначала смотрим у нас в $XEnvironmentRecord, нашли!
+  return $XEnvironmentRecord["y"];
+ 
+}
+
+let z = x();
+
+z();
+```
 
