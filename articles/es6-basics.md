@@ -78,27 +78,6 @@ f();
 
 Процесс поиска идентификатора переменных идёт по всем контекстам до самого верха, до глобального контекста.
 
-**Если идентификатор переменной не найден нигде, даже в глобальном контексте, JS VM бросает _ReferenceError_:**
-
-```javascript
-
-let $GlobalEnvironmentRecord = {};
-$GlobalEnvironmentRecord["b"] = function () {...}
-
-function b () {
-
-  let $BEnvironmentRecord = {};
-  $BEnvironmentRecord["outer"] = $GlobalEnvironmentRecord;
-
-  alert(c);
-
-  // поиск 1. смотрим в $BEnvironmentRecord, не видим!
-  // поиск 2. смотрим в родительский $BEnvironmentRecord["outer"], то есть в $GlobalEnvironmentRecord
-  // не нашлось! бросаем ReferenceError
- 
-}
-b();
-```
 
 Рассмотрим пример посложнее:
 
@@ -118,6 +97,7 @@ b();
   f();
 ```
 
+И как оно внутри работает:
 
 ```javascript
 
@@ -166,4 +146,49 @@ b();
   f();
 
 ```
+
+**Если идентификатор переменной не найден нигде, даже в глобальном контексте, JS VM бросает _ReferenceError_:**
+
+```javascript
+
+let $GlobalEnvironmentRecord = {};
+$GlobalEnvironmentRecord["b"] = function () {...}
+
+function b () {
+
+  let $BEnvironmentRecord = {};
+  $BEnvironmentRecord["outer"] = $GlobalEnvironmentRecord;
+
+  alert(c);
+
+  // поиск 1. смотрим в $BEnvironmentRecord, не видим!
+  // поиск 2. смотрим в родительский $BEnvironmentRecord["outer"], то есть в $GlobalEnvironmentRecord
+  // не нашлось! бросаем ReferenceError
+ 
+}
+b();
+```
+
+## Замыкания
+
+Разберёмся, что происходит вот тут:
+
+```javascript
+function x() {
+  let a = 4;
+
+  function y() {
+     alert(a);
+  }
+
+  return y;
+}
+
+let z = x();
+
+z();
+```
+
+Мы видим, что выводится `4`. Как же так?
+
 
