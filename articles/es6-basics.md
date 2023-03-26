@@ -85,22 +85,54 @@ f();
 
 ```javascript
 
-  // создали объект для хранения переменных нашего глобального контекста
-  $GlobalEnvironmentRecord = {};
-
-  // указали, что есть «ключ» `a`, пока «пустой»
-  $GlobalEnvironmentRecord[‘a’] = undefined;
-
-  // указали, что есть ключ `f`, ссылающийся на функцию f, мы её сразу определяем
-  $GlobalEnvironmentRecord[‘f’] = function () {...}
-
   var a = 3;
-
   function f() {
      var a = 4;
 
      function x() {
         a = 5;
+     }
+
+     x();
+  }
+
+  f();
+```
+
+
+```javascript
+
+  let $GlobalEnvironmentRecord = {};
+  $GlobalEnvironmentRecord[‘a’] = undefined;
+  $GlobalEnvironmentRecord[‘f’] = function () {...}
+
+  var a = 3;
+
+  // поиск 1. смотрим в $GlobalEnvironmentRecord, нашли!
+  $GlobalEnvironmentRecord[‘a’] = 3;
+
+  function f() {
+
+     let $FEnvironmentRecord = {};
+     $FEnvironmentRecord[‘a’] = undefined;
+     $FEnvironmentRecord[‘x’] = function () {...}
+
+     var a = 4;
+
+     // поиск 1. смотрим в $FEnvironmentRecord, нашли!
+     // в родительский $GlobalEnvironmentRecord даже и ходить не пришлось
+     $FEnvironmentRecord[‘a’] = 4;
+
+     function x() {
+
+       let $XEnvironmentRecord = {};
+
+       a = 5;
+
+       // поиск 1. смотрим в $XEnvironmentRecord, не видим!
+       // поиск 2. смотрим в родительский $FEnvironmentRecord, нашли!
+       // в $GlobalEnvironmentRecord смотреть не пришлось
+       $FEnvironmentRecord[‘a’] = 4;
      }
 
      x();
