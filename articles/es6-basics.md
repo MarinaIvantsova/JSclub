@@ -137,7 +137,7 @@ f();
        // поиск 1. смотрим в $XEnvironmentRecord, не видим!
        // поиск 2. смотрим в родительский $XEnvironmentRecord["outer"], нашли!
        // в прародительский смотреть не пришлось
-       $FEnvironmentRecord["a"] = 4;
+       $FEnvironmentRecord["a"] = 5;
      }
 
      x();
@@ -195,6 +195,7 @@ z();
 
 ```javascript
 let $GlobalEnvironmentRecord = {};
+$GlobalEnvironmentRecord["z"] = undefined;
 $GlobalEnvironmentRecord["x"] = function () {...}
 
 function x() {
@@ -229,7 +230,14 @@ function x() {
 }
 
 let z = x();
+// поиск 1. смотрим в наш локальный $XEnvironmentRecord, нашли `z`
+// тут же в $XEnvironmentRecord нашли и `x`
+$XEnvironmentRecord["z"] = $XEnvironmentRecord["x"]();
+
 
 z();
+// поиск 1. смотрим в наш локальный $XEnvironmentRecord, нашли `z`
+$XEnvironmentRecord["z"]();
+
 ```
 
