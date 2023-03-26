@@ -242,3 +242,10 @@ $XEnvironmentRecord["z"]();
 
 ```
 
+То есть, «возвращённая» `y` внутри себя имеет «рабочую» ссылку на `$YEnvironmentRecord["outer"]["a"]`.
+
+А теперь немного про GC:
+
+> A GC-enabled programming language includes one or more garbage collectors (GC engines) that automatically free up memory space that has been allocated to objects **no longer needed by the program**.
+
+
