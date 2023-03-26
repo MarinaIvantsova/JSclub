@@ -67,7 +67,8 @@ function f() {
    // во время выполнения этого кода нужно найти, где же наша `a`:
    // 1. сначала смотрим у нас: в $FEnvironmentRecord (объект переменных нашего контекста)
    // 2. Не нашли! смотрим наружу: в $FEnvironmentRecord["outer"]
-   $FEnvironmentRecord["outer"]["a"] = 4 (то есть $GlobalEnvironmentRecord["a"] = 4)
+   // 3. Нашли там! Устанавливаем:
+   $FEnvironmentRecord["outer"]["a"] = 4; // (то есть $GlobalEnvironmentRecord["a"] = 4)
 
 }
 
