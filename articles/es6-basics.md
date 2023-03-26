@@ -248,4 +248,4 @@ $XEnvironmentRecord["z"]();
 
 > A GC-enabled programming language includes one or more garbage collectors (GC engines) that automatically free up memory space that has been allocated to objects **no longer needed by the program**.
 
-
+Все функции продолжают содержать ссылки на внешние для них Environment’ы, пока эти ссылки сами _доступны_.
