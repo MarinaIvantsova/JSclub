@@ -2,20 +2,50 @@
 
 ## Поиск / определение
 
-По аналогии с поиском переменной, поиск значения this идёт от текущего environmentObject текущего EexecutionContext'a "вверх" до global.
+По аналогии с поиском значения переменной по идентификатору, поиск значения this идёт от текущего environmentObject текущего ExecutionContext'a "вверх" до global.
 
-В global this есть всегда, таким образом, если this не найден в каком-то из "локальных" environmentRecord'ов, то будет использован globalEnvironmentRecord.thisValue
+В global this есть всегда, таким образом, если this не найден в каком-то из "локальных" environmentRecord'ов, то будет использован globalEnvironmentRecord['this'].
 
-## Установка
+**arrow functions**
 
-1. apply 
-2. call
+## Установка this
+
+1. call
+2. apply
 3. bind
 4. initial
 
 ### Call
 
 Call является "внутренним" методом функции. Вызывается с двумя параметрами: this, argumentsList
+
+_об аргументах поговорим позже_.
+
+```javascript
+
+function a () {
+	alert(this);
+}
+
+a();
+```
+
+```javascript
+
+// начиная выполнение программы, мы всегда находимся в «глобальном контексте»
+// в глобальном контексте this == globalEnvironmentRecord
+
+function a () {
+	// смотрим aEnvironmentRecord['this'], не находим
+	// смотрим aEnvironmentRecord['outer']['this'], находим global и алёртим
+	// в браузере выведется [object Window]
+	alert(this);
+}
+
+a();
+```
+
+
 
 ```javascript
 
@@ -30,13 +60,11 @@ a.call("wtf");
 
 ```javascript
 
-// начиная выполнение программы, мы вначале всегда находимся в «глобальном контексте»
+// начиная выполнение программы, мы всегда находимся в «глобальном контексте»
 // в глобальном контексте this == globalEnvironmentRecord
 
 function a () {
-	// при выполнении этого кода 
-	// смотрим aEnvironmentRecord['this'], не находим
-	// смотрим aEnvironmentRecord['outer']['this'], находим global и алёртим
+	// смотрим aEnvironmentRecord['this'], находим "wtf"
 	alert(this);
 }
 
