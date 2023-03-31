@@ -51,16 +51,13 @@ a.call("wtf");
 
 ```javascript
 
-// начиная выполнение программы, мы всегда находимся в «глобальном контексте»
-// в глобальном контексте this == globalEnvironmentRecord
-
 function a () {
 	// смотрим aEnvironmentRecord['this'], находим "wtf"
 	// смотрим aEnvironmentRecord['outer']['this'], находим global и алёртим
 	alert(this);
 }
 
-// при этом выполнении мы вызываем функцию, предварительно установив aEnvironmentRecord['this'] = "wtf" 
+// вызываем функцию, предварительно установив aEnvironmentRecord['this'] = "wtf" 
 a.call("wtf");
 ```
 
@@ -79,12 +76,9 @@ function a () {
 a.apply("wtf");
 ```
 
-a.call("this", return, throw); <- ключевые слова появляются в вызове функции call
-a.apply("this", [return, throw]) <- ключевые слова появляются при инициализации массива
-
 ### Bind
 
-Bind возвращает новую функцию, в которой localEnvironmentRecord['this'] будет заранее установлен.
+Bind создаёт обёртку над функцией, об которую он вызван. В этой обёртке localExecutionContext установлен заранее.
 
 ```javascript
 function a () {
@@ -97,3 +91,4 @@ let b = a.bind("wtf");
 
 b();
 ```
+
