@@ -23,15 +23,6 @@ _об аргументах поговорим позже_.
 
 ```javascript
 
-function a () {
-	alert(this);
-}
-
-a();
-```
-
-```javascript
-
 // начиная выполнение программы, мы всегда находимся в «глобальном контексте»
 // в глобальном контексте this == globalEnvironmentRecord
 
@@ -65,6 +56,7 @@ a.call("wtf");
 
 function a () {
 	// смотрим aEnvironmentRecord['this'], находим "wtf"
+	// смотрим aEnvironmentRecord['outer']['this'], находим global и алёртим
 	alert(this);
 }
 
