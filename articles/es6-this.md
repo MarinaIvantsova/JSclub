@@ -10,16 +10,12 @@
 
 ## Установка this
 
-1. call
-2. apply
-3. bind
-4. initial
+1. initial
+2. call
+3. apply
+4. bind
 
-### Call
-
-Call является "внутренним" методом функции. Вызывается с двумя параметрами: this, argumentsList
-
-_об аргументах поговорим позже_.
+### Initial
 
 ```javascript
 
@@ -35,6 +31,41 @@ function a () {
 
 a();
 ```
+
+```javascript
+
+let a = {
+	b: function () { alert(this.name); },
+	name: "wtf"
+}
+
+a.b();
+
+```
+
+```javascript
+
+let a = {
+	b: function () {
+
+		// смотрим aEnvironmentRecord['this'], находим, он равен самому объекту
+		// выводим this.name
+		alert(this.name);
+
+	},
+	name: "wtf"
+}
+
+a.b();
+
+```
+
+
+### Call
+
+Call является "внутренним" методом функции. Вызывается с двумя параметрами: this, argumentsList
+
+_об аргументах поговорим позже_.
 
 
 
@@ -91,4 +122,5 @@ let b = a.bind("wtf");
 
 b();
 ```
+
 
