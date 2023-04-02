@@ -117,6 +117,7 @@ function a () {
 }
 
 let b = a.bind("wtf");
+// a.bind("wtf")();
 // b будет являться новой функцией с установленным localEnvironmentRecord['this']="wtf"
 // вызов этой функции не происходит!
 
